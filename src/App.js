@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // import local components
-import Doughnut2 from './components/Doughnut2';
+import Doughnut from './components/Doughnut';
 
 // import global css
 import './App.css';
@@ -24,7 +24,7 @@ class App extends Component {
     // store data in the state of the react app
     return (
       <div className="App">
-        <Doughnut2 data={this.state.fruitData} />
+        <Doughnut data={this.state.fruitData} />
       </div>
     );
   }
