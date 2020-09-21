@@ -1,12 +1,13 @@
 // import lib and component
 import React, { Component } from 'react';
 
-// import local components
+// child components
 import Doughnut from './components/Doughnut';
 
-// import global css
-import './App.css';
+// styles
+import './app.css';
 
+// TODO: refactor to use rfc and useState hook
 class App extends Component {
   state = {
     fruitData: [
@@ -19,9 +20,7 @@ class App extends Component {
   };
 
   render() {
-    // pass in the data as prop to the child component -- brute force data integration
-    // better than d3.json() for local data file
-    // store data in the state of the react app
+    // brute force data integration with a data prop TODO: refactor
     return (
       <div className="App">
         <Doughnut data={this.state.fruitData} />

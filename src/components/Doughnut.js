@@ -21,7 +21,7 @@ class Doughnut2 extends Component {
   };
 
   render() {
-    // 0- Local styles
+    // 0- Local styles // TODO: refactor to use styled components
     const formStyles = {
       position: 'absolute',
       right: '10px',
@@ -29,13 +29,15 @@ class Doughnut2 extends Component {
     };
 
     // A- Declarative D3 Code in the render
-    // TODO: move this to a better place and get with a renderChart()
+    // TODO: move this to a better place and code up a renderChart() method
     const width = 640;
     const height = 300;
     const radius = Math.min(width, height) / 2;
 
+    // character vector of ten colors - renders as hex code colors in an svg fill
     const color = d3.schemeCategory10;
 
+    // pass the data to the d3 pie layout
     const pie = d3
       .pie()
       .value((d) => d[this.state.dataset])
@@ -48,7 +50,6 @@ class Doughnut2 extends Component {
 
     let displayedData = pie(this.props.data);
 
-    // render a <form> and an <svg> for pie
     return (
       <div>
         <form style={formStyles}>
@@ -74,6 +75,7 @@ class Doughnut2 extends Component {
           </label>
         </form>
 
+        {/* render svg powered with d3 */}
         <svg width={width} height={height}>
           <g transform={'translate(' + width / 2 + ',' + height / 2 + ')'}>
             {displayedData.map((slice, i) => (
