@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 // 00- import d3 -- the full thing - this is the way of it
 // TODO: Refactor and start using the modular d3 imports
+// ex: import { scaleLinear } from 'd3-scale';
 import * as d3 from 'd3';
 window.d3 = d3; // global object access for dev console -- works!
 
@@ -28,7 +29,7 @@ class Doughnut2 extends Component {
       top: '10px',
     };
 
-    // A- Declarative D3 Code in the render
+    // A- Simple Declarative D3 Code in the render
     // TODO: move this to a better place and code up a renderChart() method
     const width = 640;
     const height = 300;
@@ -60,7 +61,7 @@ class Doughnut2 extends Component {
               value="apples"
               checked={this.state.dataset === 'apples'}
               onChange={this.setDataset}
-            />{' '}
+            />
             Apples
           </label>
           <label>
@@ -70,12 +71,12 @@ class Doughnut2 extends Component {
               value="oranges"
               checked={this.state.dataset === 'oranges'}
               onChange={this.setDataset}
-            />{' '}
+            />
             Oranges
           </label>
         </form>
 
-        {/* render svg powered with d3 */}
+        {/* render svg powered with d3 - also notice props on svg primitives */}
         <svg width={width} height={height}>
           <g transform={'translate(' + width / 2 + ',' + height / 2 + ')'}>
             {displayedData.map((slice, i) => (

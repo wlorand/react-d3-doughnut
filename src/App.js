@@ -7,7 +7,7 @@ import Doughnut from './components/Doughnut';
 // styles
 import './app.css';
 
-// TODO: refactor to use rfc and useState hook
+// TODO: refactor to use rfc and useState hook with initial data
 class App extends Component {
   state = {
     fruitData: [
@@ -20,7 +20,7 @@ class App extends Component {
   };
 
   render() {
-    // brute force data integration with a data prop TODO: refactor
+    // brute force data React-D3 integration with a data prop TODO: refactor
     return (
       <div className="App">
         <Doughnut data={this.state.fruitData} />
