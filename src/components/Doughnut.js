@@ -8,7 +8,7 @@ import * as d3 from 'd3';
 window.d3 = d3; // global object access for dev console -- works!
 
 // 1- create a Doughnut class component (use extends as easy inheritence)
-class Doughnut2 extends Component {
+class Doughnut extends Component {
   // 1- local state to set dataset and enable switch
   state = {
     dataset: 'apples',
@@ -21,16 +21,9 @@ class Doughnut2 extends Component {
     });
   };
 
+  // A- Simple Declarative D3 Code in the render
   render() {
-    // 0- Local styles // TODO: refactor to use styled components
-    const formStyles = {
-      position: 'absolute',
-      right: '10px',
-      top: '10px',
-    };
-
-    // A- Simple Declarative D3 Code in the render
-    // TODO: move this to a better place and code up a renderChart() method
+    // TODO: move this to a better place and code up a renderChart() method to remove the D3 code from render()
     const width = 640;
     const height = 300;
     const radius = Math.min(width, height) / 2;
@@ -50,6 +43,13 @@ class Doughnut2 extends Component {
       .outerRadius(radius - 20);
 
     let displayedData = pie(this.props.data);
+
+    // 0- Local styles // TODO: refactor to use styled components
+    const formStyles = {
+      position: 'absolute',
+      right: '10px',
+      top: '10px',
+    };
 
     return (
       <div>
@@ -89,4 +89,4 @@ class Doughnut2 extends Component {
   }
 }
 
-export default Doughnut2;
+export default Doughnut;
